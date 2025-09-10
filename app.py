@@ -1,0 +1,36 @@
+from flask import Flask, render_template, url_for
+import os
+
+def create_app():
+    """Application factory pattern"""
+    app = Flask(__name__)
+    
+    # Configuration
+    app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'dev-secret-key-change-in-production')
+    app.config['DEBUG'] = os.environ.get('FLASK_DEBUG', 'True').lower() == 'true'
+    
+    # Routes
+    @app.route('/')
+    def index():
+        """Home page"""
+        return render_template('index.html')
+    
+    @app.route('/about')
+    def about():
+        """About page"""
+        return render_template('about.html')
+    
+    # Error handlers
+    @app.errorhandler(404)
+    def not_found(error):
+        return render_template('404.html'), 404
+    
+    @app.errorhandler(500)
+    def internal_error(error):
+        return render_template('500.html'), 500
+    
+    return app
+
+if __name__ == '__main__':
+    app = create_app()
+    app.run(host='0.0.0.0', port=5000, debug=True)

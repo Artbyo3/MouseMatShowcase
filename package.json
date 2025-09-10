@@ -1,0 +1,19 @@
+{
+  "name": "mousematshowcase",
+  "version": "1.0.0",
+  "description": "Un sitio web estático moderno para mostrar productos de mouse pads, construido con Flask siguiendo las mejores prácticas.",
+  "main": "index.js",
+  "scripts": {
+    "build-css": "npx @tailwindcss/cli -i ./static/css/input.css -o ./static/css/output.css",
+    "watch-css": "npx @tailwindcss/cli -i ./static/css/input.css -o ./static/css/output.css --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.13",
+    "tailwindcss": "^4.1.13"
+  }
+}
