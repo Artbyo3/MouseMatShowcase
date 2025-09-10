@@ -149,3 +149,9 @@ Thumbs.db
 *.sqlite
 config.py
 secrets.py
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
